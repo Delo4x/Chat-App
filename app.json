@@ -2,11 +2,14 @@
   "expo": {
     "name": "DE-Chat-APP",
     "slug": "DE-Chat-APP",
+    "extra": {
+      "EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY": "DEESTINY-CLERK-PUBLISHABLE-KEY"
+    },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "myapp",
-    "userInterfaceStyle": "automatic",
+    "scheme": "modernchatvideo",
+    "userInterfaceStyle": "black",
     "newArchEnabled": true,
     "ios": {
       "supportsTablet": true
@@ -32,7 +35,9 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-secure-store",
+      "expo-build-properties"
     ],
     "experiments": {
       "typedRoutes": true
