@@ -3,22 +3,37 @@
     "name": "DE-Chat-APP",
     "slug": "DE-Chat-APP",
     "extra": {
-      "EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY": "DEESTINY-CLERK-PUBLISHABLE-KEY"
+      "EXPO_PUBLIC_CLERK_PUBLISHABLE_KEY": "DEESTINY-CLERK-PUBLISHABLE-KEY",
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "185d45d7-c88c-46b1-a107-51b4ade24d69"
+      }
     },
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
     "scheme": "modernchatvideo",
-    "userInterfaceStyle": "black",
+    "userInterfaceStyle": "dark",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.delovan.DEChatAPP",
+      "associatedDomains": [
+        "applinks:unique-flounder-13.clerk.accounts.dev",
+        "webcredentials:unique-flounder-13.clerk.accounts.dev"
+      ],
+      "infoPlist": {
+        "ITSAppUsesNonExemptEncryption": false
+      }
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.delovan.DEChatAPP"
     },
     "web": {
       "bundler": "metro",
@@ -37,7 +52,12 @@
         }
       ],
       "expo-secure-store",
-      "expo-build-properties"
+      [
+        "expo-build-properties", {
+        "ios": {
+          "deploymentTarget": "16.0"
+        }
+      }]
     ],
     "experiments": {
       "typedRoutes": true
