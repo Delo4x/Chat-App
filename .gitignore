@@ -39,4 +39,4 @@ app-example
 
 subabase.ts
 
-.env
+#env
