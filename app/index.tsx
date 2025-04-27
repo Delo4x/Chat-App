@@ -1,9 +1,11 @@
 import { View, Text, StyleSheet } from 'react-native';
+import App from '../App';
 
-export default function HomeScreen() {
+
+export function IndexScreen() {
   return (
     <View style={styles.container}>
-      <Text>Home</Text>
+      <Text>Welcome to the App!</Text>
     </View>
   );
 }
@@ -15,3 +17,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
 });
+
+export default App;
