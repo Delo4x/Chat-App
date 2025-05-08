@@ -94,13 +94,24 @@ export default function Account({ session }: { session: Session }) {
   return (
     <View style={styles.container}>
       <View style={[styles.verticallySpaced, styles.mt20]}>
-        <Input label="Email" value={session?.user?.email} disabled />
+        <Input label="Email" value={session?.user?.email} disabled 
+          inputStyle={{ color: 'white' }}
+          labelStyle={{ color: 'white' }}
+        />
       </View>
       <View style={styles.verticallySpaced}>
-        <Input label="Username" value={username || ''} onChangeText={(text) => setUsername(text)} />
+        <Input label="Username" value={username || ''} onChangeText={(text) => setUsername(text)}
+          inputStyle={{ color: 'white' }}
+          labelStyle={{ color: 'white' }}
+          placeholderTextColor="gray"
+        />
       </View>
       <View style={styles.verticallySpaced}>
-        <Input label="Website" value={website || ''} onChangeText={(text) => setWebsite(text)} />
+        <Input label="Website" value={website || ''} onChangeText={(text) => setWebsite(text)}
+          inputStyle={{ color: 'white' }}
+          labelStyle={{ color: 'white' }}
+          placeholderTextColor="gray"
+        />
       </View>
 
       <View style={[styles.verticallySpaced, styles.mt20]}>
@@ -108,20 +119,31 @@ export default function Account({ session }: { session: Session }) {
           title={loading ? 'Loading ...' : 'Update'}
           onPress={() => updateProfile({ username, website, avatar_url: avatarUrl })}
           disabled={loading}
+          buttonStyle={styles.button}
+          titleStyle={styles.buttonText}
         />
       </View>
 
       <View style={styles.verticallySpaced}>
-        <Button title="Sign Out" onPress={() => supabase.auth.signOut()} />
+        <Button 
+          title="Sign Out" 
+          onPress={() => supabase.auth.signOut()}
+          buttonStyle={styles.button}
+          titleStyle={styles.buttonText}
+        />
       </View>
       <View style={[styles.verticallySpaced, {height: 200}]}>
         <FlashList
             data={users}
-            renderItem={({ item }) => <Text>{item.id}</Text>}
+            renderItem={({ item }) => <Text style={{ color: 'white' }}>{item.id}</Text>}
             estimatedItemSize={200}
         />
       </View>
+      <View style={styles.tabar}>
+        <Text style={{ color: 'white' }}>Tabar</Text>
+      </View>
     </View>
+    
   );
 }
 
@@ -129,6 +151,8 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 40,
     padding: 12,
+    backgroundColor: 'black',
+    flex: 1,
   },
   verticallySpaced: {
     paddingTop: 4,
@@ -138,4 +162,21 @@ const styles = StyleSheet.create({
   mt20: {
     marginTop: 20,
   },
+  tabar: {
+    height: 50,
+    backgroundColor: 'black',
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderTopWidth: 1,
+    borderTopColor: 'white',
+  },
+  button: {
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: 'white',
+    borderRadius: 5
+  },
+  buttonText: {
+    color: 'white'
+  }
 })

@@ -52,29 +52,45 @@ export default function Auth() {
       <View style={[styles.verticallySpaced, styles.mt20]}>
         <Input
           label="Email"
-          leftIcon={{ type: 'font-awesome', name: 'envelope' }}
           onChangeText={(text) => setEmail(text)}
           value={email}
           placeholder="email@address.com"
           autoCapitalize={'none'}
+          inputStyle={{ color: 'white' }}
+          labelStyle={{ color: 'white' }}
+          placeholderTextColor="gray"
         />
       </View>
       <View style={styles.verticallySpaced}>
         <Input
           label="Password"
-          leftIcon={{ type: 'font-awesome', name: 'lock' }}
           onChangeText={(text) => setPassword(text)}
           value={password}
           secureTextEntry={true}
           placeholder="Password"
           autoCapitalize={'none'}
+          inputStyle={{ color: 'white' }}
+          labelStyle={{ color: 'white' }}
+          placeholderTextColor="gray"
         />
       </View>
       <View style={[styles.verticallySpaced, styles.mt20]}>
-        <Button title="Sign in" disabled={loading} onPress={() => signInWithEmail()} />
+        <Button 
+          title="Sign in" 
+          disabled={loading} 
+          onPress={() => signInWithEmail()}
+          buttonStyle={styles.button}
+          titleStyle={styles.buttonText}
+        />
       </View>
       <View style={styles.verticallySpaced}>
-        <Button title="Sign up" disabled={loading} onPress={() => signUpWithEmail()} />
+        <Button 
+          title="Sign up" 
+          disabled={loading} 
+          onPress={() => signUpWithEmail()}
+          buttonStyle={styles.button}
+          titleStyle={styles.buttonText}
+        />
       </View>
     </View>
   )
@@ -84,6 +100,8 @@ const styles = StyleSheet.create({
   container: {
     marginTop: 40,
     padding: 12,
+    backgroundColor: 'black',
+    flex: 1,
   },
   verticallySpaced: {
     paddingTop: 4,
@@ -93,4 +111,13 @@ const styles = StyleSheet.create({
   mt20: {
     marginTop: 20,
   },
+  button: {
+    backgroundColor: 'transparent',
+    borderWidth: 1,
+    borderColor: 'white',
+    borderRadius: 5
+  },
+  buttonText: {
+    color: 'white'
+  }
 })
